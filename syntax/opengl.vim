@@ -1,10 +1,23 @@
 " Vim syntax file
-" Language:     C OpenGL
+" Language:     C, OpenGL
 " Maintainer:   Andreechtchev Eugeni <admix@pisem.net>
-" Version:      0.1
-" Last change:  2003-04-29
+" Version:      1.4
+" Last Change:  2003-10-31
 
-" Usage: Source it from somewhere
+" Usage: 
+"
+"   Source it from somewhere
+"
+" Changelog: 
+"
+"   2003-10-31 (v1.4) 
+"       * Updated to OpenGL 1.4 ARB extensions for OpenGL Shading Language
+"          (thanks to Eric Boumaour <zongo@nekeme.net>).
+"       * Now version number match OpenGL version.
+"
+"   2003-04-29 (v0.1)
+"       Initial release
+"
 
 " gl.h
 
@@ -761,6 +774,426 @@ syn keyword glConstant GL_DOT3_RGB
 syn keyword glConstant GL_DOT3_RGBA             
 syn keyword glConstant GL_CLAMP_TO_BORDER       
 
+" OpenGL 1.4
+syn keyword glConstant GL_GENERATE_MIPMAP
+syn keyword glConstant GL_GENERATE_MIPMAP_HINT
+syn keyword glConstant GL_BLEND_COLOR
+syn keyword glConstant GL_DEPTH_COMPONENT16
+syn keyword glConstant GL_DEPTH_COMPONENT24
+syn keyword glConstant GL_DEPTH_COMPONENT32
+syn keyword glConstant GL_TEXTURE_DEPTH_SIZE
+syn keyword glConstant GL_DEPTH_TEXTURE_MODE
+syn keyword glConstant GL_TEXTURE_COMPARE_MODE
+syn keyword glConstant GL_TEXTURE_COMPARE_FUNC
+syn keyword glConstant GL_COMPARE_R_TO_TEXTURE
+syn keyword glConstant GL_FOG_COORDINATE_SOURCE
+syn keyword glConstant GL_FOG_COORDINATE
+syn keyword glConstant GL_FRAGMENT_DEPTH
+syn keyword glConstant GL_CURRENT_FOG_COORDINATE
+syn keyword glConstant GL_FOG_COORDINATE_ARRAY_TYPE
+syn keyword glConstant GL_FOG_COORDINATE_ARRAY_STRIDE
+syn keyword glConstant GL_FOG_COORDINATE_ARRAY_POINTER
+syn keyword glConstant GL_FOG_COORDINATE_ARRAY
+syn keyword glConstant GL_POINT_SIZE_MIN
+syn keyword glConstant GL_POINT_SIZE_MAX
+syn keyword glConstant GL_POINT_FADE_THRESHOLD_SIZE
+syn keyword glConstant GL_POINT_DISTANCE_ATTENUATION
+syn keyword glConstant GL_COLOR_SUM
+syn keyword glConstant GL_CURRENT_SECONDARY_COLOR
+syn keyword glConstant GL_SECONDARY_COLOR_ARRAY_SIZE
+syn keyword glConstant GL_SECONDARY_COLOR_ARRAY_TYPE
+syn keyword glConstant GL_SECONDARY_COLOR_ARRAY_STRIDE
+syn keyword glConstant GL_SECONDARY_COLOR_ARRAY_POINTER
+syn keyword glConstant GL_SECONDARY_COLOR_ARRAY
+syn keyword glConstant GL_BLEND_DST_RGB
+syn keyword glConstant GL_BLEND_SRC_RGB
+syn keyword glConstant GL_BLEND_DST_ALPHA
+syn keyword glConstant GL_BLEND_SRC_ALPHA
+syn keyword glConstant GL_INCR_WRAP
+syn keyword glConstant GL_DECR_WRAP
+syn keyword glConstant GL_TEXTURE_FILTER_CONTROL
+syn keyword glConstant GL_TEXTURE_LOD_BIAS
+syn keyword glConstant GL_MAX_TEXTURE_LOD_BIAS
+syn keyword glConstant GL_MIRRORED_REPEAT
+
+" OpenGL ARB extension GL_ARB_vertex_buffer_object
+syn keyword glConstant GL_ARRAY_BUFFER_ARB
+syn keyword glConstant GL_ELEMENT_ARRAY_BUFFER_ARB
+syn keyword glConstant GL_ARRAY_BUFFER_BINDING_ARB
+syn keyword glConstant GL_ELEMENT_ARRAY_BUFFER_BINDING_ARB
+syn keyword glConstant GL_VERTEX_ARRAY_BUFFER_BINDING_ARB
+syn keyword glConstant GL_NORMAL_ARRAY_BUFFER_BINDING_ARB
+syn keyword glConstant GL_COLOR_ARRAY_BUFFER_BINDING_ARB
+syn keyword glConstant GL_INDEX_ARRAY_BUFFER_BINDING_ARB
+syn keyword glConstant GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING_ARB
+syn keyword glConstant GL_EDGE_FLAG_ARRAY_BUFFER_BINDING_ARB
+syn keyword glConstant GL_SECONDARY_COLOR_ARRAY_BUFFER_BINDING_ARB
+syn keyword glConstant GL_FOG_COORDINATE_ARRAY_BUFFER_BINDING_ARB
+syn keyword glConstant GL_WEIGHT_ARRAY_BUFFER_BINDING_ARB
+syn keyword glConstant GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB
+syn keyword glConstant GL_STREAM_DRAW_ARB
+syn keyword glConstant GL_STREAM_READ_ARB
+syn keyword glConstant GL_STREAM_COPY_ARB
+syn keyword glConstant GL_STATIC_DRAW_ARB
+syn keyword glConstant GL_STATIC_READ_ARB
+syn keyword glConstant GL_STATIC_COPY_ARB
+syn keyword glConstant GL_DYNAMIC_DRAW_ARB
+syn keyword glConstant GL_DYNAMIC_READ_ARB
+syn keyword glConstant GL_DYNAMIC_COPY_ARB
+syn keyword glConstant GL_READ_ONLY_ARB
+syn keyword glConstant GL_WRITE_ONLY_ARB
+syn keyword glConstant GL_READ_WRITE_ARB
+syn keyword glConstant GL_BUFFER_SIZE_ARB
+syn keyword glConstant GL_BUFFER_USAGE_ARB
+syn keyword glConstant GL_BUFFER_ACCESS_ARB
+syn keyword glConstant GL_BUFFER_MAPPED_ARB
+syn keyword glConstant GL_BUFFER_MAP_POINTER_ARB
+
+" OpenGL ARB extension GL_ARB_matrix_palette
+syn keyword glConstant GL_MATRIX_PALETTE_ARB
+syn keyword glConstant GL_MAX_MATRIX_PALETTE_STACK_DEPTH_ARB
+syn keyword glConstant GL_MAX_PALETTE_MATRICES_ARB
+syn keyword glConstant GL_CURRENT_PALETTE_MATRIX_ARB
+syn keyword glConstant GL_MATRIX_INDEX_ARRAY_ARB
+syn keyword glConstant GL_CURRENT_MATRIX_INDEX_ARB
+syn keyword glConstant GL_MATRIX_INDEX_ARRAY_SIZE_ARB
+syn keyword glConstant GL_MATRIX_INDEX_ARRAY_TYPE_ARB
+syn keyword glConstant GL_MATRIX_INDEX_ARRAY_STRIDE_ARB
+syn keyword glConstant GL_MATRIX_INDEX_ARRAY_POINTER_ARB
+
+" OpenGL ARB extension GL_ARB_multisample
+syn keyword glConstant GL_MULTISAMPLE_ARB
+syn keyword glConstant GL_SAMPLE_ALPHA_TO_COVERAGE_ARB
+syn keyword glConstant GL_SAMPLE_ALPHA_TO_ONE_ARB
+syn keyword glConstant GL_SAMPLE_COVERAGE_ARB
+syn keyword glConstant GL_SAMPLE_BUFFERS_ARB
+syn keyword glConstant GL_SAMPLES_ARB
+syn keyword glConstant GL_SAMPLE_COVERAGE_VALUE_ARB
+syn keyword glConstant GL_SAMPLE_COVERAGE_INVERT_ARB
+syn keyword glConstant GL_MULTISAMPLE_BIT_ARB
+
+" OpenGL ARB extension GL_ARB_occlusion_query
+syn keyword glConstant GL_SAMPLES_PASSED_ARB
+syn keyword glConstant GL_QUERY_COUNTER_BITS_ARB
+syn keyword glConstant GL_CURRENT_QUERY_ARB
+syn keyword glConstant GL_QUERY_RESULT_ARB
+syn keyword glConstant GL_QUERY_RESULT_AVAILABLE_ARB
+
+" OpenGL ARB extension GL_ARB_texture_border_clamp
+syn keyword glConstant GL_CLAMP_TO_BORDER_ARB
+
+" OpenGL ARB extension GL_ARB_texture_compression
+syn keyword glConstant GL_COMPRESSED_ALPHA_ARB
+syn keyword glConstant GL_COMPRESSED_LUMINANCE_ARB
+syn keyword glConstant GL_COMPRESSED_LUMINANCE_ALPHA_ARB
+syn keyword glConstant GL_COMPRESSED_INTENSITY_ARB
+syn keyword glConstant GL_COMPRESSED_RGB_ARB
+syn keyword glConstant GL_COMPRESSED_RGBA_ARB
+syn keyword glConstant GL_TEXTURE_COMPRESSION_HINT_ARB
+syn keyword glConstant GL_TEXTURE_COMPRESSED_IMAGE_SIZE_ARB
+syn keyword glConstant GL_TEXTURE_COMPRESSED_ARB
+syn keyword glConstant GL_NUM_COMPRESSED_TEXTURE_FORMATS_ARB
+syn keyword glConstant GL_COMPRESSED_TEXTURE_FORMATS_ARB
+
+" OpenGL ARB extension GL_ARB_texture_cube_map
+syn keyword glConstant GL_NORMAL_MAP_ARB
+syn keyword glConstant GL_REFLECTION_MAP_ARB
+syn keyword glConstant GL_TEXTURE_CUBE_MAP_ARB
+syn keyword glConstant GL_TEXTURE_BINDING_CUBE_MAP_ARB
+syn keyword glConstant GL_TEXTURE_CUBE_MAP_POSITIVE_X_ARB
+syn keyword glConstant GL_TEXTURE_CUBE_MAP_NEGATIVE_X_ARB
+syn keyword glConstant GL_TEXTURE_CUBE_MAP_POSITIVE_Y_ARB
+syn keyword glConstant GL_TEXTURE_CUBE_MAP_NEGATIVE_Y_ARB
+syn keyword glConstant GL_TEXTURE_CUBE_MAP_POSITIVE_Z_ARB
+syn keyword glConstant GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_ARB
+syn keyword glConstant GL_PROXY_TEXTURE_CUBE_MAP_ARB
+syn keyword glConstant GL_MAX_CUBE_MAP_TEXTURE_SIZE_ARB
+
+" OpenGL ARB extension GL_ARB_texture_env_combine
+syn keyword glConstant GL_COMBINE_ARB
+syn keyword glConstant GL_COMBINE_RGB_ARB
+syn keyword glConstant GL_COMBINE_ALPHA_ARB
+syn keyword glConstant GL_SOURCE0_RGB_ARB
+syn keyword glConstant GL_SOURCE1_RGB_ARB
+syn keyword glConstant GL_SOURCE2_RGB_ARB
+syn keyword glConstant GL_SOURCE0_ALPHA_ARB
+syn keyword glConstant GL_SOURCE1_ALPHA_ARB
+syn keyword glConstant GL_SOURCE2_ALPHA_ARB
+syn keyword glConstant GL_OPERAND0_RGB_ARB
+syn keyword glConstant GL_OPERAND1_RGB_ARB
+syn keyword glConstant GL_OPERAND2_RGB_ARB
+syn keyword glConstant GL_OPERAND0_ALPHA_ARB
+syn keyword glConstant GL_OPERAND1_ALPHA_ARB
+syn keyword glConstant GL_OPERAND2_ALPHA_ARB
+syn keyword glConstant GL_RGB_SCALE_ARB
+syn keyword glConstant GL_ADD_SIGNED_ARB
+syn keyword glConstant GL_INTERPOLATE_ARB
+syn keyword glConstant GL_CONSTANT_ARB
+syn keyword glConstant GL_PRIMARY_COLOR_ARB
+syn keyword glConstant GL_PREVIOUS_ARB
+syn keyword glConstant GL_SUBTRACT_ARB
+
+" OpenGL ARB extension GL_ARB_texture_env_dot3
+syn keyword glConstant GL_DOT3_RGB_ARB
+syn keyword glConstant GL_DOT3_RGBA_ARB
+
+" OpenGL ARB extension GL_ARB_texture_mirrored_repeat
+syn keyword glConstant GL_MIRRORED_REPEAT_ARB
+
+" OpenGL ARB extension GL_ARB_transpose_matrix
+syn keyword glConstant GL_TRANSPOSE_MODELVIEW_MATRIX_ARB
+syn keyword glConstant GL_TRANSPOSE_PROJECTION_MATRIX_ARB
+syn keyword glConstant GL_TRANSPOSE_TEXTURE_MATRIX_ARB
+syn keyword glConstant GL_TRANSPOSE_COLOR_MATRIX_ARB
+
+" OpenGL ARB extension GL_ARB_vertex_blend
+syn keyword glConstant GL_MAX_VERTEX_UNITS_ARB
+syn keyword glConstant GL_ACTIVE_VERTEX_UNITS_ARB
+syn keyword glConstant GL_WEIGHT_SUM_UNITY_ARB
+syn keyword glConstant GL_VERTEX_BLEND_ARB
+syn keyword glConstant GL_CURRENT_WEIGHT_ARB
+syn keyword glConstant GL_WEIGHT_ARRAY_TYPE_ARB
+syn keyword glConstant GL_WEIGHT_ARRAY_STRIDE_ARB
+syn keyword glConstant GL_WEIGHT_ARRAY_SIZE_ARB
+syn keyword glConstant GL_WEIGHT_ARRAY_POINTER_ARB
+syn keyword glConstant GL_WEIGHT_ARRAY_ARB
+syn keyword glConstant GL_MODELVIEW0_ARB
+syn keyword glConstant GL_MODELVIEW1_ARB
+syn keyword glConstant GL_MODELVIEW2_ARB
+syn keyword glConstant GL_MODELVIEW3_ARB
+syn keyword glConstant GL_MODELVIEW4_ARB
+syn keyword glConstant GL_MODELVIEW5_ARB
+syn keyword glConstant GL_MODELVIEW6_ARB
+syn keyword glConstant GL_MODELVIEW7_ARB
+syn keyword glConstant GL_MODELVIEW8_ARB
+syn keyword glConstant GL_MODELVIEW9_ARB
+syn keyword glConstant GL_MODELVIEW10_ARB
+syn keyword glConstant GL_MODELVIEW11_ARB
+syn keyword glConstant GL_MODELVIEW12_ARB
+syn keyword glConstant GL_MODELVIEW13_ARB
+syn keyword glConstant GL_MODELVIEW14_ARB
+syn keyword glConstant GL_MODELVIEW15_ARB
+syn keyword glConstant GL_MODELVIEW16_ARB
+syn keyword glConstant GL_MODELVIEW17_ARB
+syn keyword glConstant GL_MODELVIEW18_ARB
+syn keyword glConstant GL_MODELVIEW19_ARB
+syn keyword glConstant GL_MODELVIEW20_ARB
+syn keyword glConstant GL_MODELVIEW21_ARB
+syn keyword glConstant GL_MODELVIEW22_ARB
+syn keyword glConstant GL_MODELVIEW23_ARB
+syn keyword glConstant GL_MODELVIEW24_ARB
+syn keyword glConstant GL_MODELVIEW25_ARB
+syn keyword glConstant GL_MODELVIEW26_ARB
+syn keyword glConstant GL_MODELVIEW27_ARB
+syn keyword glConstant GL_MODELVIEW28_ARB
+syn keyword glConstant GL_MODELVIEW29_ARB
+syn keyword glConstant GL_MODELVIEW30_ARB
+syn keyword glConstant GL_MODELVIEW31_ARB
+
+" OpenGL ARB extension GL_ARB_vertex_program
+syn keyword glConstant GL_VERTEX_PROGRAM_ARB
+syn keyword glConstant GL_VERTEX_PROGRAM_POINT_SIZE_ARB
+syn keyword glConstant GL_VERTEX_PROGRAM_TWO_SIDE_ARB
+syn keyword glConstant GL_COLOR_SUM_ARB
+syn keyword glConstant GL_PROGRAM_FORMAT_ASCII_ARB
+syn keyword glConstant GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB
+syn keyword glConstant GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB
+syn keyword glConstant GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB
+syn keyword glConstant GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB
+syn keyword glConstant GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB
+syn keyword glConstant GL_CURRENT_VERTEX_ATTRIB_ARB
+syn keyword glConstant GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB
+syn keyword glConstant GL_PROGRAM_LENGTH_ARB
+syn keyword glConstant GL_PROGRAM_FORMAT_ARB
+syn keyword glConstant GL_PROGRAM_BINDING_ARB
+syn keyword glConstant GL_PROGRAM_INSTRUCTIONS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_INSTRUCTIONS_ARB
+syn keyword glConstant GL_PROGRAM_NATIVE_INSTRUCTIONS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_NATIVE_INSTRUCTIONS_ARB
+syn keyword glConstant GL_PROGRAM_TEMPORARIES_ARB
+syn keyword glConstant GL_MAX_PROGRAM_TEMPORARIES_ARB
+syn keyword glConstant GL_PROGRAM_NATIVE_TEMPORARIES_ARB
+syn keyword glConstant GL_MAX_PROGRAM_NATIVE_TEMPORARIES_ARB
+syn keyword glConstant GL_PROGRAM_PARAMETERS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_PARAMETERS_ARB
+syn keyword glConstant GL_PROGRAM_NATIVE_PARAMETERS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_NATIVE_PARAMETERS_ARB
+syn keyword glConstant GL_PROGRAM_ATTRIBS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_ATTRIBS_ARB
+syn keyword glConstant GL_PROGRAM_NATIVE_ATTRIBS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_NATIVE_ATTRIBS_ARB
+syn keyword glConstant GL_PROGRAM_ADDRESS_REGISTERS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_ADDRESS_REGISTERS_ARB
+syn keyword glConstant GL_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_LOCAL_PARAMETERS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_ENV_PARAMETERS_ARB
+syn keyword glConstant GL_PROGRAM_UNDER_NATIVE_LIMITS_ARB
+syn keyword glConstant GL_PROGRAM_STRING_ARB
+syn keyword glConstant GL_PROGRAM_ERROR_POSITION_ARB
+syn keyword glConstant GL_CURRENT_MATRIX_ARB
+syn keyword glConstant GL_TRANSPOSE_CURRENT_MATRIX_ARB
+syn keyword glConstant GL_CURRENT_MATRIX_STACK_DEPTH_ARB
+syn keyword glConstant GL_MAX_VERTEX_ATTRIBS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_MATRICES_ARB
+syn keyword glConstant GL_MAX_PROGRAM_MATRIX_STACK_DEPTH_ARB
+syn keyword glConstant GL_PROGRAM_ERROR_STRING_ARB
+syn keyword glConstant GL_MATRIX0_ARB
+syn keyword glConstant GL_MATRIX1_ARB
+syn keyword glConstant GL_MATRIX2_ARB
+syn keyword glConstant GL_MATRIX3_ARB
+syn keyword glConstant GL_MATRIX4_ARB
+syn keyword glConstant GL_MATRIX5_ARB
+syn keyword glConstant GL_MATRIX6_ARB
+syn keyword glConstant GL_MATRIX7_ARB
+syn keyword glConstant GL_MATRIX8_ARB
+syn keyword glConstant GL_MATRIX9_ARB
+syn keyword glConstant GL_MATRIX10_ARB
+syn keyword glConstant GL_MATRIX11_ARB
+syn keyword glConstant GL_MATRIX12_ARB
+syn keyword glConstant GL_MATRIX13_ARB
+syn keyword glConstant GL_MATRIX14_ARB
+syn keyword glConstant GL_MATRIX15_ARB
+syn keyword glConstant GL_MATRIX16_ARB
+syn keyword glConstant GL_MATRIX17_ARB
+syn keyword glConstant GL_MATRIX18_ARB
+syn keyword glConstant GL_MATRIX19_ARB
+syn keyword glConstant GL_MATRIX20_ARB
+syn keyword glConstant GL_MATRIX21_ARB
+syn keyword glConstant GL_MATRIX22_ARB
+syn keyword glConstant GL_MATRIX23_ARB
+syn keyword glConstant GL_MATRIX24_ARB
+syn keyword glConstant GL_MATRIX25_ARB
+syn keyword glConstant GL_MATRIX26_ARB
+syn keyword glConstant GL_MATRIX27_ARB
+syn keyword glConstant GL_MATRIX28_ARB
+syn keyword glConstant GL_MATRIX29_ARB
+syn keyword glConstant GL_MATRIX30_ARB
+syn keyword glConstant GL_MATRIX31_ARB
+
+" OpenGL ARB extension GL_ARB_depth_texture
+syn keyword glConstant GL_DEPTH_COMPONENT16_ARB
+syn keyword glConstant GL_DEPTH_COMPONENT24_ARB
+syn keyword glConstant GL_DEPTH_COMPONENT32_ARB
+syn keyword glConstant GL_TEXTURE_DEPTH_SIZE_ARB
+syn keyword glConstant GL_DEPTH_TEXTURE_MODE_ARB
+
+" OpenGL ARB extension GL_ARB_shadow
+syn keyword glConstant GL_TEXTURE_COMPARE_MODE_ARB
+syn keyword glConstant GL_TEXTURE_COMPARE_FUNC_ARB
+syn keyword glConstant GL_COMPARE_R_TO_TEXTURE_ARB
+
+" OpenGL ARB extension GL_ARB_shadow_ambient
+syn keyword glConstant GL_TEXTURE_COMPARE_FAIL_VALUE_ARB
+
+" OpenGL ARB extension GL_ARB_point_parameters
+syn keyword glConstant GL_POINT_SIZE_MIN_ARB
+syn keyword glConstant GL_POINT_SIZE_MAX_ARB
+syn keyword glConstant GL_POINT_FADE_THRESHOLD_SIZE_ARB
+syn keyword glConstant GL_POINT_DISTANCE_ATTENUATION_ARB
+
+" OpenGL ARB extension GL_ARB_fragment_program
+syn keyword glConstant GL_FRAGMENT_PROGRAM_ARB
+syn keyword glConstant GL_PROGRAM_ALU_INSTRUCTIONS_ARB
+syn keyword glConstant GL_PROGRAM_TEX_INSTRUCTIONS_ARB
+syn keyword glConstant GL_PROGRAM_TEX_INDIRECTIONS_ARB
+syn keyword glConstant GL_PROGRAM_NATIVE_ALU_INSTRUCTIONS_ARB
+syn keyword glConstant GL_PROGRAM_NATIVE_TEX_INSTRUCTIONS_ARB
+syn keyword glConstant GL_PROGRAM_NATIVE_TEX_INDIRECTIONS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_ALU_INSTRUCTIONS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_TEX_INSTRUCTIONS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_TEX_INDIRECTIONS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_NATIVE_ALU_INSTRUCTIONS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_NATIVE_TEX_INSTRUCTIONS_ARB
+syn keyword glConstant GL_MAX_PROGRAM_NATIVE_TEX_INDIRECTIONS_ARB
+syn keyword glConstant GL_MAX_TEXTURE_COORDS_ARB
+syn keyword glConstant GL_MAX_TEXTURE_IMAGE_UNITS_ARB
+
+" OpenGL ARB extension GL_ARB_shader_objects
+syn keyword glConstant GL_OBJECT_TYPE_ARB
+syn keyword glConstant GL_OBJECT_SUBTYPE_ARB
+syn keyword glConstant GL_OBJECT_DELETE_STATUS_ARB
+syn keyword glConstant GL_OBJECT_COMPILE_STATUS_ARB
+syn keyword glConstant GL_OBJECT_LINK_STATUS_ARB
+syn keyword glConstant GL_OBJECT_VALIDATE_STATUS_ARB
+syn keyword glConstant GL_OBJECT_INFO_LOG_LENGTH_ARB
+syn keyword glConstant GL_OBJECT_ATTACHED_OBJECTS_ARB
+syn keyword glConstant GL_OBJECT_ACTIVE_UNIFORMS_ARB
+syn keyword glConstant GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB
+syn keyword glConstant GL_OBJECT_SHADER_SOURCE_LENGTH_ARB
+syn keyword glType GL_PROGRAM_OBJECT_ARB
+syn keyword glType GL_SHADER_OBJECT_ARB
+syn keyword glType GL_FLOAT_VEC2_ARB
+syn keyword glType GL_FLOAT_VEC3_ARB
+syn keyword glType GL_FLOAT_VEC4_ARB
+syn keyword glType GL_INT_VEC2_ARB
+syn keyword glType GL_INT_VEC3_ARB
+syn keyword glType GL_INT_VEC4_ARB
+syn keyword glType GL_BOOL_ARB
+syn keyword glType GL_BOOL_VEC2_ARB
+syn keyword glType GL_BOOL_VEC3_ARB
+syn keyword glType GL_BOOL_VEC4_ARB
+syn keyword glType GL_FLOAT_MAT2_ARB
+syn keyword glType GL_FLOAT_MAT3_ARB
+syn keyword glType GL_FLOAT_MAT4_ARB
+syn keyword glType GLcharARB
+syn keyword glType GLhandleARB
+syn keyword glFunction glDeleteObjectARB
+syn keyword glFunction glGetHandleARB
+syn keyword glFunction glDetachObjectARB
+syn keyword glFunction glCreateShaderObjectARB
+syn keyword glFunction glShaderSourceARB
+syn keyword glFunction glCompileShaderARB
+syn keyword glFunction glCreateProgramObjectARB
+syn keyword glFunction glAttachObjectARB
+syn keyword glFunction glLinkProgramARB
+syn keyword glFunction glUseProgramObjectARB
+syn keyword glFunction glValidateProgramARB
+syn keyword glFunction glUniform1fARB
+syn keyword glFunction glUniform2fARB
+syn keyword glFunction glUniform3fARB
+syn keyword glFunction glUniform4fARB
+syn keyword glFunction glUniform1iARB
+syn keyword glFunction glUniform2iARB
+syn keyword glFunction glUniform3iARB
+syn keyword glFunction glUniform4iARB
+syn keyword glFunction glUniform1fvARB
+syn keyword glFunction glUniform2fvARB
+syn keyword glFunction glUniform3fvARB
+syn keyword glFunction glUniform4fvARB
+syn keyword glFunction glUniform1ivARB
+syn keyword glFunction glUniform2ivARB
+syn keyword glFunction glUniform3ivARB
+syn keyword glFunction glUniform4ivARB
+syn keyword glFunction glUniformMatrix2fvARB
+syn keyword glFunction glUniformMatrix3fvARB
+syn keyword glFunction glUniformMatrix4fvARB
+syn keyword glFunction glGetObjectParameterfvARB
+syn keyword glFunction glGetObjectParameterivARB
+syn keyword glFunction glGetInfoLogARB
+syn keyword glFunction glGetAttachedObjectsARB
+syn keyword glFunction glGetUniformLocationARB
+syn keyword glFunction glGetActiveUniformARB
+syn keyword glFunction glGetUniformfvARB
+syn keyword glFunction glGetUniformivARB
+syn keyword glFunction glGetShaderSourceARB
+
+" OpenGL ARB extension GL_ARB_vertex_shader
+syn keyword glConstant GL_MAX_VERTEX_UNIFORM_COMPONENTS_ARB
+syn keyword glConstant GL_MAX_VARYING_FLOATS_ARB
+syn keyword glConstant GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS_ARB
+syn keyword glConstant GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS_ARB
+syn keyword glConstant GL_OBJECT_ACTIVE_ATTRIBUTES_ARB
+syn keyword glConstant GL_OBJECT_ACTIVE_ATTRIBUTE_MAX_LENGTH_ARB
+syn keyword glType GL_VERTEX_SHADER_ARB
+syn keyword glFunction glBindAttribLocationARB
+syn keyword glFunction glGetActiveAttribARB
+syn keyword glFunction glGetAttribLocationARB
+
+" OpenGL ARB extension GL_ARB_fragment_shader
+syn keyword glConstant GL_MAX_FRAGMENT_UNIFORM_COMPONENTS_ARB
+syn keyword glType GL_FRAGMENT_SHADER_ARB
+
 " Functions
 syn keyword glFunction glClearIndex
 syn keyword glFunction glClearColor
@@ -1185,9 +1618,6 @@ syn keyword glFunction glMultTransposeMatrixd
 syn keyword glFunction glMultTransposeMatrixf
 syn keyword glFunction glSampleCoverage
 
-
-syn keyword glConstant GL_ARB_multitexture
-
 " GL_ARB_multitexture (ARB extension and OpenGL 1.2.1)
 syn keyword glConstant GL_TEXTURE0_ARB         
 syn keyword glConstant GL_TEXTURE1_ARB         
@@ -1326,6 +1756,134 @@ syn keyword glFunction glTraceTextureMESA
 syn keyword glFunction glTraceListMESA
 syn keyword glFunction glTracePointerMESA
 syn keyword glFunction glTracePointerRangeMESA
+
+" Functions from GL_ARB_VERTEX_PROGRAM
+syn keyword glFunction glVertexAttrib1sARB
+syn keyword glFunction glVertexAttrib1fARB
+syn keyword glFunction glVertexAttrib1dARB
+syn keyword glFunction glVertexAttrib2sARB
+syn keyword glFunction glVertexAttrib2fARB
+syn keyword glFunction glVertexAttrib2dARB
+syn keyword glFunction glVertexAttrib3sARB
+syn keyword glFunction glVertexAttrib3fARB
+syn keyword glFunction glVertexAttrib3dARB
+syn keyword glFunction glVertexAttrib4sARB
+syn keyword glFunction glVertexAttrib4fARB
+syn keyword glFunction glVertexAttrib4dARB
+syn keyword glFunction glVertexAttrib4NubARB
+syn keyword glFunction glVertexAttrib1svARB
+syn keyword glFunction glVertexAttrib1fvARB
+syn keyword glFunction glVertexAttrib1dvARB
+syn keyword glFunction glVertexAttrib2svARB
+syn keyword glFunction glVertexAttrib2fvARB
+syn keyword glFunction glVertexAttrib2dvARB
+syn keyword glFunction glVertexAttrib3svARB
+syn keyword glFunction glVertexAttrib3fvARB
+syn keyword glFunction glVertexAttrib3dvARB
+syn keyword glFunction glVertexAttrib4bvARB
+syn keyword glFunction glVertexAttrib4svARB
+syn keyword glFunction glVertexAttrib4ivARB
+syn keyword glFunction glVertexAttrib4ubvARB
+syn keyword glFunction glVertexAttrib4usvARB
+syn keyword glFunction glVertexAttrib4uivARB
+syn keyword glFunction glVertexAttrib4fvARB
+syn keyword glFunction glVertexAttrib4dvARB
+syn keyword glFunction glVertexAttrib4NbvARB
+syn keyword glFunction glVertexAttrib4NsvARB
+syn keyword glFunction glVertexAttrib4NivARB
+syn keyword glFunction glVertexAttrib4NubvARB
+syn keyword glFunction glVertexAttrib4NusvARB
+syn keyword glFunction glVertexAttrib4NuivARB
+syn keyword glFunction glVertexAttribPointerARB
+syn keyword glFunction glEnableVertexAttribArrayARB
+syn keyword glFunction glDisableVertexAttribArrayARB
+syn keyword glFunction glProgramStringARB
+syn keyword glFunction glBindProgramARB
+syn keyword glFunction glDeleteProgramsARB
+syn keyword glFunction glGenProgramsARB
+syn keyword glFunction glProgramEnvParameter4fARB
+syn keyword glFunction glProgramEnvParameter4dARB
+syn keyword glFunction glProgramEnvParameter4fvARB
+syn keyword glFunction glProgramEnvParameter4dvARB
+syn keyword glFunction glProgramLocalParameter4fARB
+syn keyword glFunction glProgramLocalParameter4dARB
+syn keyword glFunction glProgramLocalParameter4fvARB
+syn keyword glFunction glProgramLocalParameter4dvARB
+syn keyword glFunction glGetProgramEnvParameterfvARB
+syn keyword glFunction glGetProgramEnvParameterdvARB
+syn keyword glFunction glGetProgramLocalParameterfvARB
+syn keyword glFunction glGetProgramLocalParameterdvARB
+syn keyword glFunction glGetProgramivARB
+syn keyword glFunction glGetProgramStringARB
+syn keyword glFunction glGetVertexAttribdvARB
+syn keyword glFunction glGetVertexAttribfvARB
+syn keyword glFunction glGetVertexAttribivARB
+syn keyword glFunction glGetVertexAttribPointervARB
+syn keyword glFunction glIsProgramARB
+
+" Other functions (openGL 1.4 and ARB extensions)
+syn keyword glFunction glLoadTransposeMatrixfARB
+syn keyword glFunction glLoadTransposeMatrixdARB
+syn keyword glFunction glMultTransposeMatrixfARB
+syn keyword glFunction glMultTransposeMatrixdARB
+syn keyword glFunction glCompressedTexImage3DARB
+syn keyword glFunction glCompressedTexImage2DARB
+syn keyword glFunction glCompressedTexImage1DARB
+syn keyword glFunction glCompressedTexSubImage3DARB
+syn keyword glFunction glCompressedTexSubImage2DARB
+syn keyword glFunction glCompressedTexSubImage1DARB
+syn keyword glFunction glGetCompressedTexImageARB
+syn keyword glFunction glWeightbvARB
+syn keyword glFunction glWeightsvARB
+syn keyword glFunction glWeightivARB
+syn keyword glFunction glWeightfvARB
+syn keyword glFunction glWeightdvARB
+syn keyword glFunction glWeightubvARB
+syn keyword glFunction glWeightusvARB
+syn keyword glFunction glWeightuivARB
+syn keyword glFunction glWeightPointerARB
+syn keyword glFunction glVertexBlendARB
+syn keyword glFunction glWindowPos2dARB
+syn keyword glFunction glWindowPos2fARB
+syn keyword glFunction glWindowPos2iARB
+syn keyword glFunction glWindowPos2sARB
+syn keyword glFunction glWindowPos2ivARB
+syn keyword glFunction glWindowPos2svARB
+syn keyword glFunction glWindowPos2fvARB
+syn keyword glFunction glWindowPos2dvARB
+syn keyword glFunction glWindowPos3iARB
+syn keyword glFunction glWindowPos3sARB
+syn keyword glFunction glWindowPos3fARB
+syn keyword glFunction glWindowPos3dARB
+syn keyword glFunction glWindowPos3ivARB
+syn keyword glFunction glWindowPos3svARB
+syn keyword glFunction glWindowPos3fvARB
+syn keyword glFunction glWindowPos3dvARB
+syn keyword glFunction glBindBufferARB
+syn keyword glFunction glDeleteBuffersARB
+syn keyword glFunction glGenBuffersARB
+syn keyword glFunction glIsBufferARB
+syn keyword glFunction glBufferDataARB
+syn keyword glFunction glBufferSubDataARB
+syn keyword glFunction glGetBufferSubDataARB
+syn keyword glFunction glMapBufferARB
+syn keyword glFunction glUnmapBufferARB
+syn keyword glFunction glGetBufferParameterivARB
+syn keyword glFunction glGetBufferPointervARB
+syn keyword glFunction glCurrentPaletteMatrixARB
+syn keyword glFunction glMatrixIndexubvARB
+syn keyword glFunction glMatrixIndexusvARB
+syn keyword glFunction glMatrixIndexuivARB
+syn keyword glFunction glMatrixIndexPointerARB
+syn keyword glFunction glSampleCoverageARB
+syn keyword glFunction glGenQueriesARB
+syn keyword glFunction glDeleteQueriesARB
+syn keyword glFunction glIsQueryARB
+syn keyword glFunction glBeginQueryARB
+syn keyword glFunction glEndQueryARB
+syn keyword glFunction glGetQueryivARB
+syn keyword glFunction glGetQueryObjectivARB
+syn keyword glFunction glGetQueryObjectuivARB
 
 " glu.h
 syn keyword glConstant GLU_EXT_object_space_tess
@@ -1530,15 +2088,13 @@ syn keyword glFunction gluEndCurve
 syn keyword glFunction gluEndPolygon
 syn keyword glFunction gluEndSurface
 syn keyword glFunction gluEndTrim
-syn keyword glFunction GLubyte
 syn keyword glFunction gluGetNurbsProperty
-syn keyword glFunction GLubyte
 syn keyword glFunction gluGetTessProperty
 syn keyword glFunction gluLoadSamplingMatrices
 syn keyword glFunction gluLookAt
-syn keyword glFunction * gluNewNurbsRenderer
-syn keyword glFunction * gluNewQuadric
-syn keyword glFunction * gluNewTess
+syn keyword glFunction gluNewNurbsRenderer
+syn keyword glFunction gluNewQuadric
+syn keyword glFunction gluNewTess
 syn keyword glFunction gluNextContour
 syn keyword glFunction gluNurbsCallback
 syn keyword glFunction gluNurbsCallbackData
@@ -1571,7 +2127,7 @@ syn keyword glFunction gluUnProject
 syn keyword glFunction gluUnProject4
  
 " Default highlighting
-if version >= 508 || !exists("did_gl_syntax_inits")
+if version >= 508 || !exists("did_opengl_syntax_inits")
   if version < 508
     let did_gl_syntax_inits = 1
     command -nargs=+ HiLink hi link <args>
