@@ -1,14 +1,22 @@
 " Vim syntax file
 " Language:     C OpenGL
-" Maintainer:   Andreechtchev Eugeni <admix@pisem.net>
-" Version:      1.4.1
-" Last Change:  2003-11-07
+" Maintainer:   Andreeshchev Eugene <admix@pisem.net>
+" Version:      1.5
+" Last Change:  2007-08-30
 
 " Usage: 
 "
 "   Source it from somewhere
 "
 " Changelog: 
+"
+"   2007-08-30 (v1.5) 
+"       * Added OpenGL ES 2.0 and EGL symbols
+"          (thanks to Simon Hosie [sh1 at broadcom dot com]).
+"       * Added following variables: 
+"           c_opengl_no_gles2 - turns off GLES2 highlighting
+"           c_opengl_no_egl - turns off EGL highlighting
+"       * Now version numbering is a bit screwed =)
 "
 "   2003-11-07 (v1.4.1) 
 "       * Added GLUT support
@@ -2523,6 +2531,500 @@ if !exists ("c_opengl_no_glut")
   syntax keyword glFunction  glutEnterGameMode
   syntax keyword glFunction  glutLeaveGameMode
   syntax keyword glFunction  glutGameModeGet
+  " }}}
+" }}}
+endif
+
+" gles2/gl.h
+if !exists ("c_opengl_no_gles2")
+" GLES2 {{{
+  " Data types {{{
+  syntax keyword glType GLfixed
+  syntax keyword glType GLclampx
+  syntax keyword glType GLintptr
+  syntax keyword glType GLsizeiptr
+  " }}}
+
+  " Constants {{{
+  " BlendEquationSeperate
+  syntax keyword glConstant GL_FUNC_ADD
+  syntax keyword glConstant GL_BLEND_EQUATION
+  syntax keyword glConstant GL_BLEND_EQUATION_RGB
+  syntax keyword glConstant GL_BLEND_EQUATION_ALPHA
+
+  " BlendSubtract
+  syntax keyword glConstant GL_FUNC_SUBTRACT
+  syntax keyword glConstant GL_FUNC_REVERSE_SUBTRACT
+
+  " Buffer Objects
+  syntax keyword glConstant GL_ARRAY_BUFFER
+  syntax keyword glConstant GL_ELEMENT_ARRAY_BUFFER
+  syntax keyword glConstant GL_ARRAY_BUFFER_BINDING
+  syntax keyword glConstant GL_ELEMENT_ARRAY_BUFFER_BINDING
+  syntax keyword glConstant GL_STATIC_DRAW
+  syntax keyword glConstant GL_DYNAMIC_DRAW
+  syntax keyword glConstant GL_STREAM_DRAW
+  syntax keyword glConstant GL_WRITE_ONLY
+  syntax keyword glConstant GL_BUFFER_SIZE
+  syntax keyword glConstant GL_BUFFER_USAGE
+  syntax keyword glConstant GL_BUFFER_ACCESS
+  syntax keyword glConstant GL_CURRENT_VERTEX_ATTRIB
+
+  " GetPName
+  syntax keyword glConstant GL_STENCIL_BACK_FUNC
+  syntax keyword glConstant GL_STENCIL_BACK_FAIL
+  syntax keyword glConstant GL_STENCIL_BACK_PASS_DEPTH_FAIL
+  syntax keyword glConstant GL_STENCIL_BACK_PASS_DEPTH_PASS
+  syntax keyword glConstant GL_STENCIL_BACK_REF
+  syntax keyword glConstant GL_STENCIL_BACK_VALUE_MASK
+  syntax keyword glConstant GL_STENCIL_BACK_WRITEMASK
+  syntax keyword glConstant GL_SUBPIXEL_BITS
+
+  " HintTarget
+  syntax keyword glConstant GL_FRAGMENT_SHADER_DERIVATIVE_HINT
+
+  " DataType
+  syntax keyword glConstant GL_FIXED
+
+  " PixelFormat
+  syntax keyword glConstant GL_LUMINANCE_ALPHA
+
+  " Shaders
+  syntax keyword glConstant GL_VERTEX_PROGRAM_POINT_SIZE
+  syntax keyword glConstant GL_VERTEX_ATTRIB_ARRAY_NORMALIZED
+  syntax keyword glConstant GL_FRAGMENT_SHADER
+  syntax keyword glConstant GL_VERTEX_SHADER
+  syntax keyword glConstant GL_MAX_VERTEX_ATTRIBS
+  syntax keyword glConstant GL_MAX_VERTEX_UNIFORM_COMPONENTS
+  syntax keyword glConstant GL_MAX_VARYING_FLOATS
+  syntax keyword glConstant GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS
+  syntax keyword glConstant GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS
+  syntax keyword glConstant GL_MAX_TEXTURE_IMAGE_UNITS
+  syntax keyword glConstant GL_MAX_FRAGMENT_UNIFORM_COMPONENTS
+  syntax keyword glConstant GL_SHADER_TYPE
+  syntax keyword glConstant GL_DELETE_STATUS
+  syntax keyword glConstant GL_LINK_STATUS
+  syntax keyword glConstant GL_VALIDATE_STATUS
+  syntax keyword glConstant GL_ATTACHED_SHADERS
+  syntax keyword glConstant GL_ACTIVE_UNIFORMS
+  syntax keyword glConstant GL_ACTIVE_UNIFORM_MAX_LENGTH
+  syntax keyword glConstant GL_ACTIVE_ATTRIBUTES
+  syntax keyword glConstant GL_ACTIVE_ATTRIBUTE_MAX_LENGTH
+  syntax keyword glConstant GL_SHADING_LANGUAGE_VERSION
+  syntax keyword glConstant GL_CURRENT_PROGRAM
+
+  " Vertex Arrays
+  syntax keyword glConstant GL_VERTEX_ATTRIB_ARRAY_ENABLED
+  syntax keyword glConstant GL_VERTEX_ATTRIB_ARRAY_SIZE
+  syntax keyword glConstant GL_VERTEX_ATTRIB_ARRAY_STRIDE
+  syntax keyword glConstant GL_VERTEX_ATTRIB_ARRAY_TYPE
+  syntax keyword glConstant GL_VERTEX_ATTRIB_ARRAY_NORMALIZED
+  syntax keyword glConstant GL_VERTEX_ATTRIB_ARRAY_POINTER
+
+  " OES_read_format
+  syntax keyword glConstant GL_IMPLEMENTATION_COLOR_READ_TYPE_OES
+  syntax keyword glConstant GL_IMPLEMENTATION_COLOR_READ_FORMAT_OES
+
+  " OES_compressed_paletted_texture
+  syntax keyword glConstant GL_PALETTE4_RGB8_OES
+  syntax keyword glConstant GL_PALETTE4_RGBA8_OES
+  syntax keyword glConstant GL_PALETTE4_R5_G6_B5_OES
+  syntax keyword glConstant GL_PALETTE4_RGBA4_OES
+  syntax keyword glConstant GL_PALETTE4_RGB5_A1_OES
+  syntax keyword glConstant GL_PALETTE8_RGB8_OES
+  syntax keyword glConstant GL_PALETTE8_RGBA8_OES
+  syntax keyword glConstant GL_PALETTE8_R5_G6_B5_OES
+  syntax keyword glConstant GL_PALETTE8_RGBA4_OES
+  syntax keyword glConstant GL_PALETTE8_RGB5_A1_OES
+
+  " OES_framebuffer_object
+  syntax keyword glConstant GL_FRAMEBUFFER_OES
+  syntax keyword glConstant GL_RENDERBUFFER_OES
+  syntax keyword glConstant GL_RGB565_OES
+  syntax keyword glConstant GL_STENCIL_INDEX_OES
+  syntax keyword glConstant GL_RENDERBUFFER_WIDTH_OES
+  syntax keyword glConstant GL_RENDERBUFFER_HEIGHT_OES
+  syntax keyword glConstant GL_RENDERBUFFER_INTERNAL_FORMAT_OES
+  syntax keyword glConstant GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE_OES
+  syntax keyword glConstant GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_OES
+  syntax keyword glConstant GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL_OES
+  syntax keyword glConstant GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE_OES
+  syntax keyword glConstant GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT0_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT1_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT2_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT3_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT4_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT5_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT6_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT7_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT8_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT9_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT10_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT11_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT12_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT13_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT14_OES
+  syntax keyword glConstant GL_COLOR_ATTACHMENT15_OES
+  syntax keyword glConstant GL_DEPTH_ATTACHMENT_OES
+  syntax keyword glConstant GL_STENCIL_ATTACHMENT_OES
+  syntax keyword glConstant GL_FRAMEBUFFER_COMPLETE_OES
+  syntax keyword glConstant GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT_OES
+  syntax keyword glConstant GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_OES
+  syntax keyword glConstant GL_FRAMEBUFFER_INCOMPLETE_DUPLICATE_ATTACHMENT_OES
+  syntax keyword glConstant GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS_OES
+  syntax keyword glConstant GL_FRAMEBUFFER_INCOMPLETE_FORMATS_OES
+  syntax keyword glConstant GL_FRAMEBUFFER_UNSUPPORTED_OES
+  syntax keyword glConstant GL_FRAMEBUFFER_STATUS_ERROR_OES
+  syntax keyword glConstant GL_FRAMEBUFFER_BINDING_OES
+  syntax keyword glConstant GL_RENDERBUFFER_BINDING_OES
+  syntax keyword glConstant GL_MAX_COLOR_ATTACHMENTS_OES
+  syntax keyword glConstant GL_MAX_RENDERBUFFER_SIZE_OES
+  syntax keyword glConstant GL_INVALID_FRAMEBUFFER_OPERATION_OES
+
+  " OES_stencil1
+  syntax keyword glConstant GL_STENCIL_INDEX1_OES
+
+  " OES_stencil4
+  syntax keyword glConstant GL_STENCIL_INDEX4_OES
+
+  " OES_stencil8
+  syntax keyword glConstant GL_STENCIL_INDEX8_OES
+
+  " OES_vertex_half_float
+  syntax keyword glConstant GL_HALF_FLOAT_OES
+
+  " OES_compressed_ETC1_RGB8_texture
+  syntax keyword glConstant GL_ETC1_RGB8_OES
+
+  " OES_mapbuffer
+  syntax keyword glConstant GL_BUFFER_MAPPED
+  syntax keyword glConstant GL_BUFFER_MAP_POINTER
+
+  " OES_shader_source
+  syntax keyword glConstant GL_COMPILE_STATUS
+  syntax keyword glConstant GL_INFO_LOG_LENGTH
+  syntax keyword glConstant GL_SHADER_SOURCE_LENGTH
+
+  " OES_shader_binary
+  syntax keyword glConstant GL_PLATFORM_BINARY_OES
+  " }}}
+
+  " Functions {{{
+  syntax keyword glFunction glAttachShader
+  syntax keyword glFunction glBindAttribLocation
+  syntax keyword glFunction glBindBuffer
+  syntax keyword glFunction glBlendEquationSeparate
+  syntax keyword glFunction glBlendFuncSeparate
+  syntax keyword glFunction glBufferData
+  syntax keyword glFunction glBufferSubData
+  syntax keyword glFunction glClearDepthf
+  syntax keyword glFunction glCreateProgram
+  syntax keyword glFunction glCreateShader
+  syntax keyword glFunction glDeleteBuffers
+  syntax keyword glFunction glDeleteProgram
+  syntax keyword glFunction glDeleteShader
+  syntax keyword glFunction glDetachShader
+  syntax keyword glFunction glDepthRangef
+  syntax keyword glFunction glDisableVertexAttribArray
+  syntax keyword glFunction glEnableVertexAttribArray
+  syntax keyword glFunction glGetActiveAttrib
+  syntax keyword glFunction glGetActiveUniform
+  syntax keyword glFunction glGetAttachedShaders
+  syntax keyword glFunction glGetAttribLocation
+  syntax keyword glFunction glGetBufferParameteriv
+  syntax keyword glFunction glGenBuffers
+  syntax keyword glFunction glGetProgramiv
+  syntax keyword glFunction glGetProgramInfoLog
+  syntax keyword glFunction glGetUniformfv
+  syntax keyword glFunction glGetUniformiv
+  syntax keyword glFunction glGetUniformLocation
+  syntax keyword glFunction glGetVertexAttribfv
+  syntax keyword glFunction glGetVertexAttribiv
+  syntax keyword glFunction glGetVertexAttribPointerv
+  syntax keyword glFunction glIsBuffer
+  syntax keyword glFunction glIsProgram
+  syntax keyword glFunction glIsShader
+  syntax keyword glFunction glLinkProgram
+  syntax keyword glFunction glStencilFuncSeparate
+  syntax keyword glFunction glStencilMaskSeparate
+  syntax keyword glFunction glStencilOpSeparate
+  syntax keyword glFunction glUniform1i
+  syntax keyword glFunction glUniform2i
+  syntax keyword glFunction glUniform3i
+  syntax keyword glFunction glUniform4i
+  syntax keyword glFunction glUniform1f
+  syntax keyword glFunction glUniform2f
+  syntax keyword glFunction glUniform3f
+  syntax keyword glFunction glUniform4f
+  syntax keyword glFunction glUniform1iv
+  syntax keyword glFunction glUniform2iv
+  syntax keyword glFunction glUniform3iv
+  syntax keyword glFunction glUniform4iv
+  syntax keyword glFunction glUniform1fv
+  syntax keyword glFunction glUniform2fv
+  syntax keyword glFunction glUniform3fv
+  syntax keyword glFunction glUniform4fv
+  syntax keyword glFunction glUniformMatrix2fv
+  syntax keyword glFunction glUniformMatrix3fv
+  syntax keyword glFunction glUniformMatrix4fv
+  syntax keyword glFunction glUseProgram
+  syntax keyword glFunction glValidateProgram
+  syntax keyword glFunction glVertexAttrib1f
+  syntax keyword glFunction glVertexAttrib2f
+  syntax keyword glFunction glVertexAttrib3f
+  syntax keyword glFunction glVertexAttrib4f
+  syntax keyword glFunction glVertexAttrib1fv
+  syntax keyword glFunction glVertexAttrib2fv
+  syntax keyword glFunction glVertexAttrib3fv
+  syntax keyword glFunction glVertexAttrib4fv
+  syntax keyword glFunction glVertexAttribPointer
+
+  " OES_framebuffer_object
+  syntax keyword glFunction glIsRenderbufferOES
+  syntax keyword glFunction glBindRenderbufferOES
+  syntax keyword glFunction glDeleteRenderbuffersOES
+  syntax keyword glFunction glGenRenderbuffersOES
+  syntax keyword glFunction glRenderbufferStorageOES
+  syntax keyword glFunction glGetRenderbufferParameterivOES
+  syntax keyword glFunction glGetRenderbufferStorageFormatsivOES
+  syntax keyword glFunction glIsFramebufferOES
+  syntax keyword glFunction glBindFramebufferOES
+  syntax keyword glFunction glDeleteFramebuffersOES
+  syntax keyword glFunction glGenFramebuffersOES
+  syntax keyword glFunction glCheckFramebufferStatusOES
+  syntax keyword glFunction glFramebufferTexture2DOES
+  syntax keyword glFunction glFramebufferTexture3DOES
+  syntax keyword glFunction glFramebufferRenderbufferOES
+  syntax keyword glFunction glGetFramebufferAttachmentParameterivOES
+  syntax keyword glFunction glGenerateMipmapOES
+
+  " OES_mapbuffer
+  syntax keyword glFunction glMapBuffer
+  syntax keyword glFunction glUnmapBuffer
+
+  " OES_shader_source
+  syntax keyword glFunction glCompileShader
+  syntax keyword glFunction glGetShaderiv
+  syntax keyword glFunction glGetShaderInfoLog
+  syntax keyword glFunction glGetShaderSource
+  syntax keyword glFunction glReleaseShaderCompilerOES
+  syntax keyword glFunction glShaderSource
+
+  " OES_shader_binary
+  syntax keyword glFunction glShaderBinaryOES
+
+  " OES_shader_source + OES_shader_binary
+  syntax keyword glFunction glGetShaderPrecisionFormatOES
+
+  " }}}
+" }}}
+endif
+
+" egl.h
+if !exists ("c_opengl_no_egl")
+" EGL {{{
+  " Data types {{{
+  syntax keyword glType EGLint
+  syntax keyword glType EGLenum
+  syntax keyword glType EGLBoolean
+  syntax keyword glType EGLConfig
+  syntax keyword glType EGLContext
+  syntax keyword glType EGLDisplay
+  syntax keyword glType EGLSurface
+  syntax keyword glType EGLClientBuffer
+  syntax keyword glType NativeDisplayType
+  syntax keyword glType NativeWindowType
+  syntax keyword glType NativePixmapType
+  " }}}
+
+  " Constants {{{
+  " API handles 
+  syntax keyword glConstant EGL_DEFAULT_DISPLAY
+  syntax keyword glConstant EGL_NO_CONTEXT
+  syntax keyword glConstant EGL_NO_DISPLAY
+  syntax keyword glConstant EGL_NO_SURFACE
+
+  " Boolean
+  syntax keyword glConstant EGL_FALSE
+  syntax keyword glConstant EGL_TRUE
+
+  " Errors
+  syntax keyword glConstant EGL_SUCCESS
+  syntax keyword glConstant EGL_NOT_INITIALIZED
+  syntax keyword glConstant EGL_BAD_ACCESS
+  syntax keyword glConstant EGL_BAD_ALLOC
+  syntax keyword glConstant EGL_BAD_ATTRIBUTE
+  syntax keyword glConstant EGL_BAD_CONFIG
+  syntax keyword glConstant EGL_BAD_CONTEXT
+  syntax keyword glConstant EGL_BAD_CURRENT_SURFACE
+  syntax keyword glConstant EGL_BAD_DISPLAY
+  syntax keyword glConstant EGL_BAD_MATCH
+  syntax keyword glConstant EGL_BAD_NATIVE_PIXMAP
+  syntax keyword glConstant EGL_BAD_NATIVE_WINDOW
+  syntax keyword glConstant EGL_BAD_PARAMETER
+  syntax keyword glConstant EGL_BAD_SURFACE
+  syntax keyword glConstant EGL_CONTEXT_LOST
+
+  " Config attributes
+  syntax keyword glConstant EGL_BUFFER_SIZE
+  syntax keyword glConstant EGL_ALPHA_SIZE
+  syntax keyword glConstant EGL_BLUE_SIZE
+  syntax keyword glConstant EGL_GREEN_SIZE
+  syntax keyword glConstant EGL_RED_SIZE
+  syntax keyword glConstant EGL_DEPTH_SIZE
+  syntax keyword glConstant EGL_STENCIL_SIZE
+  syntax keyword glConstant EGL_CONFIG_CAVEAT
+  syntax keyword glConstant EGL_CONFIG_ID
+  syntax keyword glConstant EGL_LEVEL
+  syntax keyword glConstant EGL_MAX_PBUFFER_HEIGHT
+  syntax keyword glConstant EGL_MAX_PBUFFER_PIXELS
+  syntax keyword glConstant EGL_MAX_PBUFFER_WIDTH
+  syntax keyword glConstant EGL_NATIVE_RENDERABLE
+  syntax keyword glConstant EGL_NATIVE_VISUAL_ID
+  syntax keyword glConstant EGL_NATIVE_VISUAL_TYPE
+  syntax keyword glConstant EGL_PRESERVED_RESOURCES
+  syntax keyword glConstant EGL_SAMPLES
+  syntax keyword glConstant EGL_SAMPLE_BUFFERS
+  syntax keyword glConstant EGL_SURFACE_TYPE
+  syntax keyword glConstant EGL_TRANSPARENT_TYPE
+  syntax keyword glConstant EGL_TRANSPARENT_BLUE_VALUE
+  syntax keyword glConstant EGL_TRANSPARENT_GREEN_VALUE
+  syntax keyword glConstant EGL_TRANSPARENT_RED_VALUE
+  syntax keyword glConstant EGL_BIND_TO_TEXTURE_RGB
+  syntax keyword glConstant EGL_BIND_TO_TEXTURE_RGBA
+  syntax keyword glConstant EGL_MIN_SWAP_INTERVAL
+  syntax keyword glConstant EGL_MAX_SWAP_INTERVAL
+  syntax keyword glConstant EGL_LUMINANCE_SIZE
+  syntax keyword glConstant EGL_ALPHA_MASK_SIZE
+  syntax keyword glConstant EGL_COLOR_BUFFER_TYPE
+  syntax keyword glConstant EGL_RENDERABLE_TYPE
+  syntax keyword glConstant EGL_MATCH_NATIVE_PIXMAP
+
+  " Unknown display resolution/aspect ratio
+  syntax keyword glConstant EGL_UNKNOWN
+
+  syntax keyword glConstant EGL_RENDER_BUFFER
+  syntax keyword glConstant EGL_COLORSPACE
+  syntax keyword glConstant EGL_ALPHA_FORMAT
+  syntax keyword glConstant EGL_COLORSPACE_sRGB
+  syntax keyword glConstant EGL_COLORSPACE_LINEAR
+  syntax keyword glConstant EGL_ALPHA_FORMAT_NONPRE
+  syntax keyword glConstant EGL_ALPHA_FORMAT_PRE
+  syntax keyword glConstant EGL_CLIENT_APIS
+  syntax keyword glConstant EGL_RGB_BUFFER
+  syntax keyword glConstant EGL_LUMINANCE_BUFFER
+  syntax keyword glConstant EGL_HORIZONTAL_RESOLUTION
+  syntax keyword glConstant EGL_VERTICAL_RESOLUTION
+  syntax keyword glConstant EGL_PIXEL_ASPECT_RATIO
+  syntax keyword glConstant EGL_SWAP_BEHAVIOR
+  syntax keyword glConstant EGL_BUFFER_PRESERVED
+  syntax keyword glConstant EGL_BUFFER_DESTROYED
+
+  " CreatePbufferFromClientBuffer buffer types
+  syntax keyword glConstant EGL_OPENVG_IMAGE
+
+  " QueryContext targets
+  syntax keyword glConstant EGL_CONTEXT_CLIENT_TYPE
+  syntax keyword glConstant EGL_CONTEXT_CLIENT_VERSION
+
+  syntax keyword glConstant EGL_OPENGL_ES_API
+  syntax keyword glConstant EGL_OPENVG_API
+
+  " Config attribute and value
+  syntax keyword glConstant EGL_NONE
+
+  " Config values
+  syntax keyword glConstant EGL_DONT_CARE
+  syntax keyword glConstant EGL_PBUFFER_BIT
+  syntax keyword glConstant EGL_PIXMAP_BIT
+  syntax keyword glConstant EGL_WINDOW_BIT
+  syntax keyword glConstant EGL_SLOW_CONFIG
+  syntax keyword glConstant EGL_NON_CONFORMANT_CONFIG
+  syntax keyword glConstant EGL_TRANSPARENT_RGB
+
+  syntax keyword glConstant EGL_NO_TEXTURE
+  syntax keyword glConstant EGL_TEXTURE_RGB
+  syntax keyword glConstant EGL_TEXTURE_RGBA
+  syntax keyword glConstant EGL_TEXTURE_2D
+
+  syntax keyword glConstant EGL_OPENGL_ES_BIT
+  syntax keyword glConstant EGL_OPENVG_BIT
+  syntax keyword glConstant EGL_OPENGL_ES2_BIT
+  syntax keyword glConstant EGL_DISPLAY_SCALING
+
+  " String names
+  syntax keyword glConstant EGL_VENDOR
+  syntax keyword glConstant EGL_VERSION
+  syntax keyword glConstant EGL_EXTENSIONS
+
+  " Surface attributes
+  syntax keyword glConstant EGL_HEIGHT
+  syntax keyword glConstant EGL_WIDTH
+  syntax keyword glConstant EGL_LARGEST_PBUFFER
+  syntax keyword glConstant EGL_TEXTURE_FORMAT
+  syntax keyword glConstant EGL_TEXTURE_TARGET
+  syntax keyword glConstant EGL_MIPMAP_TEXTURE
+  syntax keyword glConstant EGL_MIPMAP_LEVEL
+
+  " BindTexImage/ReleaseTexImage buffer target
+  syntax keyword glConstant EGL_BACK_BUFFER
+  syntax keyword glConstant EGL_SINGLE_BUFFER
+
+  " Current surfaces
+  syntax keyword glConstant EGL_DRAW
+  syntax keyword glConstant EGL_READ
+
+  " Engines
+  syntax keyword glConstant EGL_CORE_NATIVE_ENGINE
+  " }}}
+
+  " Functions {{{
+  syntax keyword glFunction eglGetError                                 
+
+  syntax keyword glFunction eglGetDisplay                       
+  syntax keyword glFunction eglInitialize                       
+  syntax keyword glFunction eglTerminate                        
+
+  syntax keyword glFunction eglQueryString                      
+
+  syntax keyword glFunction eglGetConfigs                       
+  syntax keyword glFunction eglChooseConfig                     
+  syntax keyword glFunction eglGetConfigAttrib                  
+
+  syntax keyword glFunction eglCreateWindowSurface      
+  syntax keyword glFunction eglCreatePbufferSurface     
+  syntax keyword glFunction eglCreatePixmapSurface      
+  syntax keyword glFunction eglDestroySurface                   
+  syntax keyword glFunction eglQuerySurface                     
+
+  syntax keyword glFunction eglSurfaceAttrib                    
+  syntax keyword glFunction eglBindTexImage                     
+  syntax keyword glFunction eglReleaseTexImage                  
+
+  syntax keyword glFunction eglSwapInterval                     
+
+  syntax keyword glFunction eglCreateContext                    
+  syntax keyword glFunction eglDestroyContext                   
+  syntax keyword glFunction eglMakeCurrent                      
+
+  syntax keyword glFunction eglGetCurrentContext        
+  syntax keyword glFunction eglGetCurrentSurface        
+  syntax keyword glFunction eglGetCurrentDisplay        
+  syntax keyword glFunction eglQueryContext                     
+
+  syntax keyword glFunction eglWaitGL                                   
+  syntax keyword glFunction eglWaitNative                       
+  syntax keyword glFunction eglSwapBuffers                      
+  syntax keyword glFunction eglCopyBuffers                      
+
+  syntax keyword glFunction eglGetProcAddress
+
+  syntax keyword glFunction eglCreatePbufferFromClientBuffer
+  syntax keyword glFunction eglWaitClient                       
+  syntax keyword glFunction eglBindAPI                                  
+  syntax keyword glFunction eglQueryAPI                                 
+  syntax keyword glFunction eglReleaseThread                    
   " }}}
 " }}}
 endif
